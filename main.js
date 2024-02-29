@@ -1,4 +1,3 @@
-// Datos del problema
 
 const entrenadores = [
     { name: 'A', reputation: 4.5, placesAvailable: 1 },
@@ -26,23 +25,22 @@ const entrenadores = [
     // Ordenar entrenadores por reputación de mayor a menor
     entrenadores.sort((a, b) => b.reputation - a.reputation);
 
-    // Ordenar clientes por importanceReputation de mayor a menor
+    // Ordenar clientes por reputación de mayor a menor
     clientes.sort((a, b) => b.importanceReputation - a.importanceReputation);
 
     // Iterar sobre los entrenadores
     for (let i = 0; i < entrenadores.length; i++) {
         const entrenador = entrenadores[i];
 
-        // Asignar clientes al entrenador hasta completar placesAvailable
+        // Asignar clientes al entrenador hasta completar plazas disponibles
         while (entrenador.placesAvailable > 0 && clientes.length > 0) {
-            const clientAssigned = clientes.shift(); // Tomar el cliente con mayor importanceReputation
-            entrenador.placesAvailable--; // Reducir la cantidad de plazas disponibles
+            const clientAssigned = clientes.shift(); // Tomar el cliente con mayor con mayor importancia de la reputación del entrenador
+            entrenador.placesAvailable--; // Reducir la cantidad a plazas disponibles
             document.getElementById('output').innerHTML += `Cliente: ${clientAssigned.name}, entrenador asignado: ${entrenador.name}<br>`;
         }
     }
     document.getElementById('output').style.display = 'block';
-    // Mostrar resultado en la página
+
     mostrarResultados();
 
 }
-
