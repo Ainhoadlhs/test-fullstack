@@ -36,7 +36,15 @@ const entrenadores = [
         while (entrenador.placesAvailable > 0 && clientes.length > 0) {
             const clientAssigned = clientes.shift(); // Tomar el cliente con mayor con mayor importancia de la reputación del entrenador
             entrenador.placesAvailable--; // Reducir la cantidad a plazas disponibles
-            document.getElementById('output').innerHTML += `Cliente: ${clientAssigned.name}, entrenador asignado: ${entrenador.name}<br>`;
+            document.getElementById('output').innerHTML +=   
+            `<table>
+            <tr>
+              <td class='client'>Cliente:</td>
+              <td class='result1'>${clientAssigned.name}</td>
+              <td class='trainer'>Entrenador:</td>
+              <td class='result2'>${entrenador.name}</td>
+            </tr>
+          </table>`;
         }
     }
     document.getElementById('output').style.display = 'block';
